@@ -62,9 +62,7 @@ router.get('/preview', csrfProtection, async (req: Request, res: Response) => {
     songApplication.saveId(songData.Id);
     res.render('pages/preview', {songData, origin, token: req.csrfToken()});
   } catch (e) {
-    const err = e as Error;
-    console.log(err);
-    res.render('pages/error', {err, origin});
+    res.redirect('/');
   }
 });
 
