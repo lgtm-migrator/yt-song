@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../components/head') %>
+    <link rel="stylesheet" href="<%= origin %>/css/index.css">
+  </head>
+  <body>
+    <header class="text-center">
+      <h1>
+        Dream-DL
+      </h1>
+      <h2>
+        Youtubeの動画を無料でダウンロードできるツール
+      </h2>
+    </header>
+    <main class="main">
+      <form action="/preview" method="get" class="link-form text-center mb-4">
+        <div class="form-group mb-3">
+          <label for="url">
+            YoutubeのURL
+          </label>
+          <input type="text" class="form-control" id="url" name="url" placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">
+          Preview<span class="ms-2"><%- include('../icons/arrow-right-circle') %></span>
+        </button>
+      </form>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <a href="https://github.com/elca-hub/dream-dl"><p>Github<span class="ms-2"><%- include('../icons/github') %></span></p></a>
+          </div>
+          <div class="col-6">
+            <a href="https://github.com/elca-hub/dream-dl/blob/main/DOC/warning.md"><p>使用に関して<span class="ms-2"><%- include('../icons/warning') %></span></p></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="cute-ball"></div>
+  </body>
+</html>

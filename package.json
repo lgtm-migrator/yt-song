@@ -1,0 +1,42 @@
+{
+  "name": "dream-dl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-build": "tsc --noEmit && node build.js",
+    "dev-run": "node dist/server.js",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elca-hub/dream-dl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elca-hub/dream-dl/issues"
+  },
+  "homepage": "https://github.com/elca-hub/dream-dl#readme",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/glob": "^7.2.0",
+    "ejs": "^3.1.8",
+    "esbuild": "^0.14.39",
+    "express": "^4.18.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "glob": "^8.0.3",
+    "node-id3": "^0.2.3",
+    "typescript": "^4.6.4",
+    "ytdl-core": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.1",
+    "@types/fluent-ffmpeg": "^2.1.20",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
