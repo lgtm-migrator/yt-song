@@ -10,8 +10,6 @@ glob.sync('dist/**/*').forEach((file) => {
   }
 });
 
-console.log(process.env.NODE_ENV);
-
 build({
   define: {'prosess.env.NODE_ENV': process.env.NODE_ENV},
   entryPoints,
