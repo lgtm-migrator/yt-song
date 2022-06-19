@@ -4,6 +4,8 @@ import express from 'express';
 
 const app = express();
 
+app.enable('trust proxy');
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
