@@ -17,4 +17,5 @@ build({
   outdir: './dist',
   platform: 'node',
   format: 'cjs',
+  minify: process.env.NODE_ENV === 'production',
 });
