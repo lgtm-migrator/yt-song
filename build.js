@@ -10,6 +10,8 @@ glob.sync('dist/**/*').forEach((file) => {
   }
 });
 
+console.log(process.env.NODE_ENV);
+
 build({
   define: {'prosess.env.NODE_ENV': process.env.NODE_ENV},
   entryPoints,
@@ -17,4 +19,5 @@ build({
   outdir: './dist',
   platform: 'node',
   format: 'cjs',
+  minify: process.env.NODE_ENV === 'production',
 });
