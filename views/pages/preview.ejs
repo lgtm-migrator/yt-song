@@ -13,6 +13,7 @@
     <main class="main">
       <div class="title-box">
         <form action="/download" method="post" class="mb-3">
+          <input type="hidden" name="_csrf" value="<%= token %>">
           <div class="mb-3">
             <label for="songTitle" class="form-label form-title">曲のタイトル</label>
             <input type="text" class="form-control input-style" id="songTitle" value="<%= songData.Title %>" placeholder="<%= songData.Title %>" name="title" required>
