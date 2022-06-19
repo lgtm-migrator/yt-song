@@ -5,36 +5,44 @@
     <link rel="stylesheet" href="<%= origin %>/css/preview.css">
   </head>
   <body>
-    <header class="text-center">
-      <h1>
-        Preview
-      </h1>
-    </header>
     <main class="main">
-      <div class="title-box">
-        <form action="/download" method="post" class="mb-3">
-          <input type="hidden" name="_csrf" value="<%= token %>">
-          <div class="mb-3">
-            <label for="songTitle" class="form-label form-title">曲のタイトル</label>
-            <input type="text" class="form-control input-style" id="songTitle" value="<%= songData.Title %>" placeholder="<%= songData.Title %>" name="title" required>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <h1>Preview</h1>
           </div>
-          <div class="mb-3">
-            <label for="songArtist" class="form-label form-title">アーティスト</label>
-            <input type="text" class="form-control input-style" id="songArtist" value="<%= songData.Artist %>" placeholder="<%= songData.Artist %>" name="artist" required>
+        </div>
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <img src="<%= songData.imgUrl %>" class="thumbnail">
           </div>
-          <label for="volumeRange" class="form-label form-title">音量</label>
-          <input type="range" class="form-range" min="0" max="1" step="0.05" id="volumeRange" name="volume">
-          <button type="submit" class="btn btn-primary">
-            Download
-          </button>
-        </form>
+          <div class="col">
+            <form action="/download" method="post" class="mb-3">
+              <input type="hidden" name="_csrf" value="<%= token %>">
+              <div class="mb-3">
+                <p class="form-title m-0">曲のタイトル</p>
+                <input type="text" class="input-style" id="songTitle" value="<%= songData.Title %>" placeholder="<%= songData.Title %>" name="title" required>
+              </div>
+              <div class="mb-3">
+                <p class="form-title m-0">アーティスト</p>
+                <input type="text" class="input-style" id="songArtist" value="<%= songData.Artist %>" placeholder="<%= songData.Artist %>" name="artist" required>
+              </div>
+              <p class="form-title m-0">音量</p>
+              <input type="range" class="form-range" min="0" max="1" step="0.05" id="volumeRange" name="volume">
+              <button type="submit" class="btn btn-primary">
+                Download
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div  class="col">
+            <a href="/" class="btn btn-outline-primary">
+              Back
+            </a>
+          </div>
+        </div>
       </div>
-      <a href="/" class="btn btn-outline-primary">
-        Back
-      </a>
     </main>
-    <div class="bg-img">
-      <img src="<%= songData.imgUrl %>">
-    </div>
   </body>
 </html>
