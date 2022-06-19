@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-build": "tsc --noEmit && node build.js",
+    "build": "tsc --noEmit && node build.js",
     "dev-run": "node dist/server.js",
     "start": "node dist/server.js"
   },
