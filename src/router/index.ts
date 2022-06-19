@@ -72,7 +72,7 @@ router.post('/download', csrfProtection, async (req: Request, res: Response) => 
   if (id === '') return res.redirect('/');
 
   const volumeRange = req.body.volume;
-  let volume = 1.0;
+  let volume;
 
   if (isNaN(volumeRange)) return res.redirect('/');
   else volume = Number(volumeRange);
