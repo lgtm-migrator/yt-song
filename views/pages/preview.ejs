@@ -14,14 +14,14 @@
       <div class="title-box">
         <form action="/download" method="post" class="mb-3">
           <div class="mb-3">
-            <label for="songTitle" class="form-label">曲のタイトル</label>
-            <input type="text" class="form-control" id="songTitle" value="<%= songData.Title %>" placeholder="<%= songData.Title %>" name="title" required>
+            <label for="songTitle" class="form-label form-title">曲のタイトル</label>
+            <input type="text" class="form-control input-style" id="songTitle" value="<%= songData.Title %>" placeholder="<%= songData.Title %>" name="title" required>
           </div>
           <div class="mb-3">
-            <label for="songArtist" class="form-label">アーティスト</label>
-            <input type="text" class="form-control" id="songArtist" value="<%= songData.Artist %>" placeholder="<%= songData.Artist %>" name="artist" required>
+            <label for="songArtist" class="form-label form-title">アーティスト</label>
+            <input type="text" class="form-control input-style" id="songArtist" value="<%= songData.Artist %>" placeholder="<%= songData.Artist %>" name="artist" required>
           </div>
-          <label for="volumeRange" class="form-label">音量</label>
+          <label for="volumeRange" class="form-label form-title">音量</label>
           <input type="range" class="form-range" min="0" max="1" step="0.05" id="volumeRange" name="volume">
           <button type="submit" class="btn btn-primary">
             Download
