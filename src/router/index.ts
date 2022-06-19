@@ -1,6 +1,7 @@
 import {Request, Response, Router, NextFunction} from 'express';
 import fs from 'fs';
 import path from 'path';
+import csurf from 'csurf';
 
 /* Application */
 import SongApplication from '../application/songApplication';
@@ -12,6 +13,8 @@ import SongRepository from '../interface/repository/songRepository';
 import SongInfoData from '../application/dto/songInfoData';
 
 const songApplication = new SongApplication(new SongRepository());
+
+const csrfProtection = csurf({cookie: false});
 
 // eslint-disable-next-line new-cap
 const router = Router();
@@ -44,7 +47,7 @@ router.get('/', (req: Request, res: Response) => {
   res.render('pages/index', {origin});
 });
 
-router.get('/preview', async (req: Request, res: Response) => {
+router.get('/preview', csrfProtection, async (req: Request, res: Response) => {
   const url = req.query.url as string;
   if (url === undefined) {
     res.status(400).send('youtubeのidが指定されていません');
@@ -57,7 +60,7 @@ router.get('/preview', async (req: Request, res: Response) => {
       ytid as string,
     );
     songApplication.saveId(songData.Id);
-    res.render('pages/preview', {songData, origin});
+    res.render('pages/preview', {songData, origin, token: req.csrfToken()});
   } catch (e) {
     const err = e as Error;
     console.log(err);
@@ -65,7 +68,7 @@ router.get('/preview', async (req: Request, res: Response) => {
   }
 });
 
-router.post('/download', async (req: Request, res: Response) => {
+router.post('/download', csrfProtection, async (req: Request, res: Response) => {
   const id = songApplication.getID();
 
   if (id === '') return res.redirect('/');
