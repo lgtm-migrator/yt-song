@@ -62,9 +62,7 @@ router.get('/preview', csrfProtection, async (req: Request, res: Response) => {
     songApplication.saveId(songData.Id);
     res.render('pages/preview', {songData, origin, token: req.csrfToken()});
   } catch (e) {
-    const err = e as Error;
-    console.log(err);
-    res.render('pages/error', {err, origin});
+    res.redirect('/');
   }
 });
 
@@ -74,7 +72,7 @@ router.post('/download', csrfProtection, async (req: Request, res: Response) => 
   if (id === '') return res.redirect('/');
 
   const volumeRange = req.body.volume;
-  let volume = 1.0;
+  let volume;
 
   if (isNaN(volumeRange)) return res.redirect('/');
   else volume = Number(volumeRange);

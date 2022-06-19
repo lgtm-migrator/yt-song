@@ -39,8 +39,15 @@
   border-bottom: solid 1px #000;
   border-radius: 0;
   outline: none;
+  width: 100%;
 }
 
 .input-style:focus {
   background: rgba(0, 0, 0, 0);
+}
+
+.thumbnail {
+  width: 96%;
+  border-radius: 6px;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
 }
