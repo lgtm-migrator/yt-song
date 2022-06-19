@@ -31,7 +31,7 @@ app.use(session({
     // eslint-disable-next-line no-magic-numbers
     maxAge: 60 * 60 * 1000, // 1時間
     httpOnly: true,
-    // secure: true,
+    secure: true,
   },
 }));
 
